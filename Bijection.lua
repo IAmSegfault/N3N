@@ -22,13 +22,13 @@ local function combine(n, k)
   return c;
 end
 
-function bijection:map(x,y,z)
+function bijection.map(x,y,z)
   z = z or 0;
   local n1 = x;
-  x1 = combine(n1, 1);
+  local x1 = combine(n1, 1);
 
   local n2 = x + y + 1;
-  x2 = combine(n2, 2)
+  local x2 = combine(n2, 2)
 
   local n3 = x + y + z + 2;
   local x3 = combine(n3, 3);
@@ -36,6 +36,7 @@ function bijection:map(x,y,z)
   local r = (x1 + x2 + x3) * magic
   --Faster rounding than floor.
   r = r + 0.5 - (r + 0.5) % 1;
+  
   return r;
 end
 
