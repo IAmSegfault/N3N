@@ -11,18 +11,21 @@ local maxint = 262144;
 -- abs(magic) must not exceed 68719476736
 local magic = 9001;
 
-local function combine(n, k)
-  if n >0 then
-    n = 2 * n 
+local function constraint(j)
+    if j >0 then
+    j = 2 * j 
   else
-    n = (-2 * n) + 1
+    j = (-2 * j) + 1
   end
-  
-  
+  return j
+end
+
+
+local function combine(n, k)
   local c = 1;
   for i = 1, k do
     x = n - (i - 1);
-    c = (x / k) * c
+    c = (x / i) * c
   end
   return c;
 end
@@ -31,6 +34,10 @@ function bijection.map(x,y,z)
   
   
   z = z or 0;
+  x = constraint(x)
+  y = constraint(y)
+  z = constraint(z)
+  
   local n1 = x;
   local x1 = combine(n1, 1);
 
