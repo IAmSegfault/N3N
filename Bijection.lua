@@ -19,7 +19,6 @@ local function constraint(j)
   return j
 end
 
-
 local function combine(n, k)
   local c = 1;
   for i = 1, k do
