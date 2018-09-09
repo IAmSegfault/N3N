@@ -51,7 +51,7 @@ function bijection.map(x,y,z,w)
     return nil
   end
   
-  if w and (math.abs(w) - 1) <= maxmagic then
+  if w and math.abs(w) <= maxmagic then
     r = r * w;
   else
     r = r * magic
