@@ -1,5 +1,8 @@
 # N3N
-A bijective mapping of vectors to integers in lua.
+A bijective mapping of integer vectors to integers in lua.
+Maximum values are (-17,-17,-17) to (18,18,18) for 3 dimensional mappings
+and (-27, -27) to (28, 28) for 2 dimensional mappings.
+The maximum absolute value of the magic number is 68719476735.
 
 ### How to use:
 1. Git clone into your project directory.

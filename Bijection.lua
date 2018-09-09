@@ -1,4 +1,3 @@
-
 -- Useful for example, when creating a deterministic seed for a given chunk coordinate.
 -- (x,y,z)->(x combine 1)+((x+y+1) combine 2)+((x+y+z+2) combine 3).
 -- See https://math.stackexchange.com/questions/1176184/how-to-find-unique-numbers-from-3-numbers
@@ -7,12 +6,12 @@
 -- for details.
 local bijection = {}
 local maxint = 262144;
--- abs(magic) must not exceed 68719476736
-local maxmagic = 68719476736
+-- abs(magic) must not exceed 68719476735
+local maxmagic = 68719476735
 local magic = 9001;
 
 local function constraint(j)
-    if j >0 then
+  if j >0 then
     j = 2 * j 
   else
     j = (-2 * j) + 1
@@ -52,7 +51,7 @@ function bijection.map(x,y,z,w)
     return nil
   end
   
-  if w and math.abs(w) <= maxmagic then
+  if w and (math.abs(w) - 1) <= maxmagic then
     r = r * w;
   else
     r = r * magic
