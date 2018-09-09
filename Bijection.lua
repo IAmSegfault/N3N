@@ -7,8 +7,8 @@
 -- for details.
 local bijection = {}
 local maxint = 262144;
-
 -- abs(magic) must not exceed 68719476736
+local maxmagic = 68719476736
 local magic = 9001;
 
 local function constraint(j)
@@ -30,8 +30,9 @@ local function combine(n, k)
   return c;
 end
 
-function bijection.map(x,y,z)
+function bijection.map(x,y,z,w)
   
+  w = w or false
   z = z or 0;
   x = constraint(x)
   y = constraint(y)
@@ -50,7 +51,13 @@ function bijection.map(x,y,z)
   if r > maxint then
     return nil
   end
-  r = r * magic
+  
+  if w and math.abs(w) <= maxmagic then
+    r = r * w;
+  else
+    r = r * magic
+  end
+  
   --Faster rounding than floor.
   r = r + 0.5 - (r + 0.5) % 1;
   
