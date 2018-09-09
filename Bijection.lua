@@ -24,14 +24,13 @@ end
 local function combine(n, k)
   local c = 1;
   for i = 1, k do
-    x = n - (i - 1);
+  local x = n - (i - 1);
     c = (x / i) * c
   end
   return c;
 end
 
 function bijection.map(x,y,z)
-  
   
   z = z or 0;
   x = constraint(x)
@@ -41,10 +40,9 @@ function bijection.map(x,y,z)
   local n1 = x;
   local x1 = combine(n1, 1);
 
-
   local n2 = x + y + 1;
   local x2 = combine(n2, 2)
-
+  
   local n3 = x + y + z + 2;
   local x3 = combine(n3, 3);
   
