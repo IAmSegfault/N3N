@@ -4,7 +4,7 @@
 -- https://math.stackexchange.com/questions/312879/how-to-define-a-injective-and-surjective-function-from-mathbbz-to-mathbb
 -- https://en.wikipedia.org/wiki/Combination#Example_of_counting_combinations 
 -- for details.
-local bijection = {}
+local injection = {}
 local maxint = 262144;
 -- abs(magic) must not exceed 68719476735
 local maxmagic = 68719476735
@@ -28,7 +28,7 @@ local function combine(n, k)
   return c;
 end
 
-function bijection.map(x,y,z,w)
+function injection.map(x,y,z,w)
   
   w = w or false
   z = z or 0;
@@ -62,4 +62,4 @@ function bijection.map(x,y,z,w)
   return r;
 end
 
-return bijection;
+return injection;
