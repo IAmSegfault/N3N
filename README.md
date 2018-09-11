@@ -9,4 +9,4 @@ An injective mapping of integer vectors to integers in lua.
 1. Git clone into your project directory.
 2. Set magic to a magic number of your choosing.
 3. injection = require("N3N.Injection")
-4. n = Injection.map(x,y,z)
+4. n = injection.map(x,y,z)
